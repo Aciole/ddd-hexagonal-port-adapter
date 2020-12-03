@@ -1,0 +1,21 @@
+{
+  "name": "ddd-hexagonal-port-adapter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Aciole/ddd-hexagonal-port-adapter.git",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.16",
+    "@types/node": "^14.14.10",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "jest": "^26.6.3",
+    "moq.ts": "^6.4.0",
+    "ts-jest": "^26.4.4",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  }
+}
