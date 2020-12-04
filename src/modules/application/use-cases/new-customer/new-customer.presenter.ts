@@ -1,14 +1,18 @@
-import { Customer } from '@domain/customer';
-import { IOutputPort } from '@domain/interfaces/use-case/new-customer';
+import { Customer } from '../../../domain/customer';
+import { IOutputPort } from '../../../domain/interfaces/use-case/new-customer';
 
 export class NewCustomerPresenter implements IOutputPort {
+	public invalidOutputPort: boolean = false;
+	public duplicateOutputPort: boolean = false;
+	public createdOutputPort: boolean = false;
+
 	invalid(err: Error): void {
-		throw new Error('Method not implemented.');
+		this.invalidOutputPort = true;
 	}
 	duplicate(err: Error): void {
-		throw new Error('Method not implemented.');
+		this.duplicateOutputPort = true;
 	}
 	created(customer: Customer): void {
-		throw new Error('Method not implemented.');
+		this.createdOutputPort = true;
 	}
 }

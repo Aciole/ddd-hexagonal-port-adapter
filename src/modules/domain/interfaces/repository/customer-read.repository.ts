@@ -1,7 +1,7 @@
-import { Customer } from '@domain/customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
-import { Email } from '@domain/value-objets/email';
-import { Phone } from '@domain/value-objets/phone';
+import { Customer } from '../../customer';
+import { CustomerId } from '../../value-objets/customer-id';
+import { Email } from '../../value-objets/email';
+import { Phone } from '../../value-objets/phone';
 
 export interface ICustomerReadRepository {
 	getById(id: CustomerId): Promise<Customer>;

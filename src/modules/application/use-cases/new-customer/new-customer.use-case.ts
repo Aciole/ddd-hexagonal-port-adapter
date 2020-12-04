@@ -1,16 +1,16 @@
 import { NewCustomerPresenter } from './new-customer.presenter';
-import { Result } from '@shared/core/result';
+import { Result } from '../../../../shared/core/result';
 import {
 	INewCustomerCommand,
 	INewCustomerUseCase,
 	IOutputPort,
-} from '@domain/interfaces/use-case/new-customer';
-import { Email } from '@domain/value-objets/email';
-import { Phone } from '@domain/value-objets/phone';
-import { Name } from '@domain/value-objets/name';
-import { Customer } from '@domain/customer';
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+} from '../../../domain/interfaces/use-case/new-customer';
+import { Email } from '../../../domain/value-objets/email';
+import { Phone } from '../../../domain/value-objets/phone';
+import { Name } from '../../../domain/value-objets/name';
+import { Customer } from '../../../domain/customer';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 
 export class NewCustomerUseCase implements INewCustomerUseCase {
 	private _outputPort: IOutputPort;

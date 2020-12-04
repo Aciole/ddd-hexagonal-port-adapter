@@ -1,12 +1,12 @@
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IChangePhoneCustomerCommand,
 	IChangePhoneCustomerUseCase,
 	IOutputPort,
-} from '@domain/interfaces/use-case/change-phone-customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
-import { Phone } from '@domain/value-objets/phone';
+} from '../../../domain/interfaces/use-case/change-phone-customer';
+import { CustomerId } from '../../../domain/value-objets/customer-id';
+import { Phone } from '../../../domain/value-objets/phone';
 import { ChangePhoneCustomerPresenter } from './change-phone-customer.presenter';
 
 export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
@@ -46,6 +46,11 @@ export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
 
 		if (customerResult == null) {
 			this._outputPort.notFound(new Error(''));
+			return;
+		}
+
+		if (customerResult.phone.value === request.phone) {
+			this._outputPort.unchanged(new Error(''));
 			return;
 		}
 

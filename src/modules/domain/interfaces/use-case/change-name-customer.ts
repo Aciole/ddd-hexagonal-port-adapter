@@ -1,5 +1,5 @@
-import { IUseCase } from '@shared/core/use-case';
-import { Customer } from '@domain/customer';
+import { IUseCase } from '../../../../shared/core/use-case';
+import { Customer } from '../../customer';
 
 export interface IChangeNameCustomerCommand {
 	id: string;

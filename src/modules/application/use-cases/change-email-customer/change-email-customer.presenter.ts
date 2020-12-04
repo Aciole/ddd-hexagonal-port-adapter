@@ -1,5 +1,5 @@
-import { Customer } from '@domain/customer';
-import { IOutputPort } from '@domain/interfaces/use-case/change-email-customer';
+import { Customer } from '../../../domain/customer';
+import { IOutputPort } from '../../../domain/interfaces/use-case/change-email-customer';
 
 export class ChangeEmailCustomerPresenter implements IOutputPort {
 	public invalidOutputPort: boolean = false;

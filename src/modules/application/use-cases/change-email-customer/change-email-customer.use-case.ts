@@ -1,12 +1,12 @@
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IChangeEmailCustomerCommand,
 	IChangeEmailCustomerUseCase,
 	IOutputPort,
-} from '@domain/interfaces/use-case/change-email-customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
-import { Email } from '@domain/value-objets/email';
+} from '../../../domain/interfaces/use-case/change-email-customer';
+import { Email } from '../../../domain/value-objets/email';
+import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';
 
 export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
@@ -49,10 +49,16 @@ export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
 			return;
 		}
 
+		if (customerResult.email.value === request.email) {
+			this._outputPort.unchanged(new Error(''));
+			return;
+		}
+
 		customerResult.updateEmail(emailUpdated);
 
 		await this._customerWriteRepository.update(customerResult);
 
 		this._outputPort.changed(customerResult);
+		return;
 	}
 }

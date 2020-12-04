@@ -1,6 +1,6 @@
-import { ValueObject } from '@core/value-object';
+import { ValueObject } from '../../../shared/core/value-object';
 
-interface CustomerIdProps {
+export interface CustomerIdProps {
 	id: string;
 }
 export class CustomerId extends ValueObject<CustomerIdProps> {

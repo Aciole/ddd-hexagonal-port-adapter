@@ -1,11 +1,11 @@
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IDeleteCustomerCommand,
 	IDeleteCustomerUseCase,
 	IOutputPort,
-} from '@domain/interfaces/use-case/delete-customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
+} from '../../../domain/interfaces/use-case/delete-customer';
+import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { DeleteCustomerPresenter } from './delete-customer.presenter';
 
 export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {

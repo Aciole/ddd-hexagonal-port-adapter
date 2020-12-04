@@ -1,7 +1,7 @@
 module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
   clearMocks: true,
   coverageProvider: "v8",
-  preset: 'ts-jest',
-  testEnvironment: "node",
   testMatch: ["**/*.spec.ts"],
 };

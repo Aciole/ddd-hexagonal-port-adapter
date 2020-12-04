@@ -1,5 +1,5 @@
-import { ValueObject } from '@core/value-object';
-import { Result } from '@shared/core/result';
+import { ValueObject } from '../../../shared/core/value-object';
+import { Result } from '../../../shared/core/result';
 
 interface INameProps {
 	firstname: string;

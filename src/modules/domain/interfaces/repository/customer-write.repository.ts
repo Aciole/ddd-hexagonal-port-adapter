@@ -1,4 +1,4 @@
-import { Customer } from '@domain/customer';
+import { Customer } from '../../customer';
 
 export interface ICustomerWriteRepository {
 	create(customer: Customer): Promise<void>;

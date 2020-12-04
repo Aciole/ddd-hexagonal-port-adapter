@@ -1,12 +1,12 @@
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IOutputPort,
 	IVerifyPhoneCustomerCommand,
 	IVerifyPhoneCustomerUseCase,
-} from '@domain/interfaces/use-case/verify-phone.customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
-import { Phone } from '@domain/value-objets/phone';
+} from '../../../domain/interfaces/use-case/verify-phone.customer';
+import { CustomerId } from '../../../domain/value-objets/customer-id';
+import { Phone } from '../../../domain/value-objets/phone';
 import { VerifyPhoneCustomerPresenter } from './verify-phone-customer.presenter';
 
 export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
@@ -46,6 +46,16 @@ export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
 
 		if (customerResult == null) {
 			this._outputPort.notFound(new Error(''));
+			return;
+		}
+
+		if (customerResult.phone.value != request.phone) {
+			this._outputPort.doesNotBelongToThisCustomer(new Error(''));
+			return;
+		}
+
+		if (customerResult.phone.verified == true) {
+			this._outputPort.alreadyBeenVerified(new Error(''));
 			return;
 		}
 

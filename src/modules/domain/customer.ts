@@ -1,4 +1,4 @@
-import { Entity } from '@core/entity';
+import { Entity } from '../../shared/core/entity';
 import { CustomerId } from './value-objets/customer-id';
 import { Email } from './value-objets/email';
 import { Name } from './value-objets/name';

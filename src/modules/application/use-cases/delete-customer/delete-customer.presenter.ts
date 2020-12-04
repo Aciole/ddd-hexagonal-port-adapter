@@ -1,10 +1,13 @@
-import { IOutputPort } from '@domain/interfaces/use-case/delete-customer';
+import { IOutputPort } from '../../../domain/interfaces/use-case/delete-customer';
 
 export class DeleteCustomerPresenter implements IOutputPort {
+	public notFoundOutputPort: boolean = false;
+	public deletedOutputPort: boolean = false;
+
 	notFound(): void {
-		throw new Error('Method not implemented.');
+		this.notFoundOutputPort = true;
 	}
 	deleted(): void {
-		throw new Error('Method not implemented.');
+		this.deletedOutputPort = true;
 	}
 }

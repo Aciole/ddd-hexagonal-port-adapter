@@ -1,12 +1,12 @@
-import { ICustomerReadRepository } from '@domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '@domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IChangeNameCustomerCommand,
 	IChangeNameCustomerUseCase,
 	IOutputPort,
-} from '@domain/interfaces/use-case/change-name-customer';
-import { CustomerId } from '@domain/value-objets/customer-id';
-import { Name } from '@domain/value-objets/name';
+} from '../../../domain/interfaces/use-case/change-name-customer';
+import { CustomerId } from '../../../domain/value-objets/customer-id';
+import { Name } from '../../../domain/value-objets/name';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';
 
 export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
@@ -46,6 +46,14 @@ export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
 
 		if (customerResult == null) {
 			this._outputPort.notFound(new Error(''));
+			return;
+		}
+
+		if (
+			customerResult.name.firstname === request.firstname &&
+			customerResult.name.lastname === request.lastname
+		) {
+			this._outputPort.unchanged(new Error(''));
 			return;
 		}
 

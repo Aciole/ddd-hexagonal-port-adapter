@@ -1,18 +1,22 @@
-import { Customer } from '@domain/customer';
-import { IOutputPort } from '@domain/interfaces/use-case/change-name-customer';
+import { Customer } from '../../../domain/customer';
+import { IOutputPort } from '../../../domain/interfaces/use-case/change-name-customer';
 
 export class ChangeNameCustomerPresenter implements IOutputPort {
-	notFound(error: Error): void {
-		throw new Error('Method not implemented.');
-	}
-	invalid(error: Error): void {
-		throw new Error('Method not implemented.');
-	}
+	public invalidOutputPort: boolean = false;
+	public notFoundOutputPort: boolean = false;
+	public unchangedOutputPort: boolean = false;
+	public changedOutputPort: boolean = false;
 
+	invalid(error: Error): void {
+		this.invalidOutputPort = true;
+	}
+	notFound(error: Error): void {
+		this.notFoundOutputPort = true;
+	}
 	unchanged(error: Error): void {
-		throw new Error('Method not implemented.');
+		this.unchangedOutputPort = true;
 	}
 	changed(customer: Customer): void {
-		throw new Error('Method not implemented.');
+		this.changedOutputPort = true;
 	}
 }

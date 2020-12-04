@@ -1,4 +1,4 @@
-import { IUseCase } from '@shared/core/use-case';
+import { IUseCase } from '../../../../shared/core/use-case';
 
 export interface IDeleteCustomerCommand {
 	id: string;
