@@ -1,4 +1,5 @@
 import { Mock, It } from 'moq.ts';
+import 'reflect-metadata';
 import { Customer } from '../../../domain/customer';
 import { INewCustomerUseCase } from '../../../domain/interfaces/use-case/new-customer';
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';

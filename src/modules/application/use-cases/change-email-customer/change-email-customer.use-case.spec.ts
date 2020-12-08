@@ -1,4 +1,5 @@
 import { Mock, It } from 'moq.ts';
+import 'reflect-metadata';
 
 import { ChangeEmailCustomerUseCase } from './change-email-customer.use-case';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';

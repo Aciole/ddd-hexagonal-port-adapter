@@ -1,4 +1,5 @@
 import { Mock, It } from 'moq.ts';
+import 'reflect-metadata';
 import { Customer } from '../../../domain/customer';
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
