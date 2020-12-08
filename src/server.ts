@@ -2,7 +2,8 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as swagger from 'swagger-express-ts';
 import 'reflect-metadata';
-import './modules/presentation/api/controllers/v1/customer/customer.controller';
+import './modules/presentation/api/controllers/v1/customer/customer.routes';
+
 import { InversifyExpressServer } from 'inversify-express-utils';
 
 import container from './config/ioc/ioc-config';
