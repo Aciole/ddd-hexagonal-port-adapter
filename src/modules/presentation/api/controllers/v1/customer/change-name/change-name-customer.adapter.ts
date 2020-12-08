@@ -1,7 +1,7 @@
 import * as express from 'express';
 
 import { Customer } from '../../../../../../domain/customer';
-import { IOutputPort } from '../../../../../../domain/interfaces/use-case/change-name-customer';
+import { IOutputPort } from '../../../../../../domain/use-case/v1/change-name/change-name-customer.usecase';
 import { CustomerViewModel } from '../customer.viewmodel';
 
 export class ChangeNameCustomerAdapter implements IOutputPort {

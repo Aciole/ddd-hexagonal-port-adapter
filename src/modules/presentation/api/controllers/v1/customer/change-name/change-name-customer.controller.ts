@@ -13,17 +13,17 @@ import {
 	ApiPath,
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
 
-import { IChangeNameCustomerUseCase } from '../../../../../../domain/interfaces/use-case/change-name-customer';
+import { IChangeNameCustomerUseCase } from '../../../../../../domain/use-case/v1/change-name/change-name-customer.usecase';
+import { IChangeNameCustomerCommand } from '../../../../../../domain/use-case/v1/change-name/change-name-customer.command';
 import { ChangeNameCustomerAdapter } from './change-name-customer.adapter';
-import { IChangeNameCustomerCommand } from '../../../../../../domain/interfaces/commands/change-name-customer.command';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class ChangeNameCustomerController implements interfaces.Controller {
 	constructor(
 		@inject(USE_CASE_TYPES.ChangeNameCustomerUseCase)

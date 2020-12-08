@@ -1,7 +1,7 @@
 import * as express from 'express';
 
 import { Customer } from '../../../../../../domain/customer';
-import { IOutputPort } from '../../../../../../domain/interfaces/use-case/verify-email.customer';
+import { IOutputPort } from '../../../../../../domain/use-case/v1/verify-email/verify-email.customer.usecase';
 import { CustomerViewModel } from '../customer.viewmodel';
 
 export class VerifyEmailCustomerAdapter implements IOutputPort {

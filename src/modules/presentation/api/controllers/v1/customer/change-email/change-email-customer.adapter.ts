@@ -1,7 +1,7 @@
 import * as express from 'express';
 
 import { Customer } from '../../../../../../domain/customer';
-import { IOutputPort } from '../../../../../../domain/interfaces/use-case/change-email-customer';
+import { IOutputPort } from '../../../../../../domain/use-case/v1/change-email/change-email-customer.usecase';
 import { CustomerViewModel } from '../customer.viewmodel';
 
 export class ChangeEmailCustomerAdapter implements IOutputPort {

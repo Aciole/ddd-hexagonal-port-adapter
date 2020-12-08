@@ -13,16 +13,16 @@ import {
 	ApiPath,
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
-import { IVerifyEmailCustomerUseCase } from '../../../../../../domain/interfaces/use-case/verify-email.customer';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
+import { IVerifyEmailCustomerUseCase } from '../../../../../../domain/use-case/v1/verify-email/verify-email.customer.usecase';
+import { IVerifyEmailCustomerCommand } from '../../../../../../domain/use-case/v1/verify-email/verify-email-customer.command';
 import { VerifyEmailCustomerAdapter } from './verify-email-customer.adpter';
-import { IVerifyEmailCustomerCommand } from '../../../../../../domain/interfaces/commands/verify-email-customer.command';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class VerifyEmailCustomerController implements interfaces.Controller {
 	/**
 	 *

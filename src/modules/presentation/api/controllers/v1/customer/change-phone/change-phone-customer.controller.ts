@@ -13,17 +13,17 @@ import {
 	ApiPath,
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
 
-import { IChangePhoneCustomerUseCase } from '../../../../../../domain/interfaces/use-case/change-phone-customer';
+import { IChangePhoneCustomerUseCase } from '../../../../../../domain/use-case/v1/change-phone/change-phone-customer.usecase';
+import { IChangePhoneCustomerCommand } from '../../../../../../domain/use-case/v1/change-phone/change-phone-customer.command';
 import { ChangePhoneCustomerAdapter } from './change-phone-customer.adapter';
-import { IChangePhoneCustomerCommand } from '../../../../../../domain/interfaces/commands/change-phone-customer.command';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class ChangePhoneCustomerController implements interfaces.Controller {
 	constructor(
 		@inject(USE_CASE_TYPES.ChangePhoneCustomerUseCase)

@@ -14,16 +14,16 @@ import {
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
 
-import { IVerifyPhoneCustomerCommand } from '../../../../../../domain/interfaces/commands/verify-phone-customer.command';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
-import { IVerifyPhoneCustomerUseCase } from '../../../../../../domain/interfaces/use-case/verify-phone.customer';
+import { IVerifyPhoneCustomerUseCase } from '../../../../../../domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
+import { IVerifyPhoneCustomerCommand } from '../../../../../../domain/use-case/v1/verify-phone/verify-phone-customer.command';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
 import { VerifyPhoneCustomerAdapter } from './verify-phone-customer.adpter';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class VerifyPhoneCustomerController implements interfaces.Controller {
 	constructor(
 		@inject(USE_CASE_TYPES.VerifyPhoneCustomerUseCase)

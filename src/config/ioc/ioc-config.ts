@@ -1,24 +1,30 @@
 import { Container } from 'inversify';
 
-import USE_CASE_TYPES from '../../modules/domain/interfaces/use-case/types';
+import USE_CASE_TYPES from '../../modules/domain/use-case/v1/types';
 import REPOSITORIES_TYPES from '../../modules/domain/interfaces/repository/types';
 
 import { ICustomerReadRepository } from '../../modules/domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../modules/domain/interfaces/repository/customer-write.repository';
-import { NewCustomerUseCase } from '../../modules/application/use-cases/new-customer/new-customer.use-case';
-import { INewCustomerUseCase } from '../../modules/domain/interfaces/use-case/new-customer';
-import { IDeleteCustomerUseCase } from '../../modules/domain/interfaces/use-case/delete-customer';
-import { DeleteCustomerUseCase } from '../../modules/application/use-cases/delete-customer/delete-customer.use-case';
-import { IChangeEmailCustomerUseCase } from '../../modules/domain/interfaces/use-case/change-email-customer';
-import { ChangeEmailCustomerUseCase } from '../../modules/application/use-cases/change-email-customer/change-email-customer.use-case';
-import { IChangePhoneCustomerUseCase } from '../../modules/domain/interfaces/use-case/change-phone-customer';
-import { ChangePhoneCustomerUseCase } from '../../modules/application/use-cases/change-phone-customer/change-phone-customer.use-case';
-import { IChangeNameCustomerUseCase } from '../../modules/domain/interfaces/use-case/change-name-customer';
-import { ChangeNameCustomerUseCase } from '../../modules/application/use-cases/change-name-customer/change-name-customer.use-case';
-import { IVerifyEmailCustomerUseCase } from '../../modules/domain/interfaces/use-case/verify-email.customer';
-import { VerifyEmailCustomerUseCase } from '../../modules/application/use-cases/verify-email-customer/verify-email-customer.use-case';
-import { IVerifyPhoneCustomerUseCase } from '../../modules/domain/interfaces/use-case/verify-phone.customer';
-import { VerifyPhoneCustomerUseCase } from '../../modules/application/use-cases/verify-phone-customer/verify-phone-customer.use-case';
+
+import { INewCustomerUseCase } from '../../modules/domain/use-case/v1/new-customer/new-customer.usecase';
+import { NewCustomerUseCase } from '../../modules/application/use-cases/v1/new-customer/new-customer.use-case';
+
+import { IDeleteCustomerUseCase } from '../../modules/domain/use-case/v1/delete-customer/delete-customer.usecase';
+import { DeleteCustomerUseCase } from '../../modules/application/use-cases/v1/delete-customer/delete-customer.use-case';
+
+import { IChangeEmailCustomerUseCase } from '../../modules/domain/use-case/v1/change-email/change-email-customer.usecase';
+import { ChangeEmailCustomerUseCase } from '../../modules/application/use-cases/v1/change-email-customer/change-email-customer.use-case';
+
+import { IChangePhoneCustomerUseCase } from '../../modules/domain/use-case/v1/change-phone/change-phone-customer.usecase';
+import { ChangePhoneCustomerUseCase } from '../../modules/application/use-cases/v1/change-phone-customer/change-phone-customer.use-case';
+
+import { IChangeNameCustomerUseCase } from '../../modules/domain/use-case/v1/change-name/change-name-customer.usecase';
+import { ChangeNameCustomerUseCase } from '../../modules/application/use-cases/v1/change-name-customer/change-name-customer.use-case';
+
+import { IVerifyEmailCustomerUseCase } from '../../modules/domain/use-case/v1/verify-email/verify-email.customer.usecase';
+import { VerifyEmailCustomerUseCase } from '../../modules/application/use-cases/v1/verify-email-customer/verify-email-customer.use-case';
+import { IVerifyPhoneCustomerUseCase } from '../../modules/domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
+import { VerifyPhoneCustomerUseCase } from '../../modules/application/use-cases/v1/verify-phone-customer/verify-phone-customer.use-case';
 import { CustomerReadMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-read.mock.repository';
 import { CustomerWriteMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-write.mock.repository';
 

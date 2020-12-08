@@ -1,7 +1,6 @@
 import * as express from 'express';
 
-import { Customer } from '../../../../../../domain/customer';
-import { IOutputPort } from '../../../../../../domain/interfaces/use-case/delete-customer';
+import { IOutputPort } from '../../../../../../domain/use-case/v1/delete-customer/delete-customer.usecase';
 
 export class DeleteCustomerAdapter implements IOutputPort {
 	public response: express.Response;

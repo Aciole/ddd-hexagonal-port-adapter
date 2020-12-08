@@ -12,16 +12,16 @@ import {
 	ApiPath,
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
-import { IDeleteCustomerUseCase } from '../../../../../../domain/interfaces/use-case/delete-customer';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
+import { IDeleteCustomerUseCase } from '../../../../../../domain/use-case/v1/delete-customer/delete-customer.usecase';
 import { DeleteCustomerAdapter } from './delete-customer.adpter';
-import { IDeleteCustomerQuery } from 'modules/domain/interfaces/queries/delete-customer.query';
+import { IDeleteCustomerCommand } from '../../../../../../domain/use-case/v1/delete-customer/delete-customer.command';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class DeleteCustomerController implements interfaces.Controller {
 	constructor(
 		@inject(USE_CASE_TYPES.DeleteCustomerUseCase)
@@ -54,7 +54,7 @@ export class DeleteCustomerController implements interfaces.Controller {
 		const adapterPort = new DeleteCustomerAdapter(response);
 
 		this.deleteCustomerUseCase.setOutputPort(adapterPort);
-		const command: IDeleteCustomerQuery = { id };
+		const command: IDeleteCustomerCommand = { id };
 
 		await this.deleteCustomerUseCase.execute(
 			`${new Date()}:${Math.random()}`,

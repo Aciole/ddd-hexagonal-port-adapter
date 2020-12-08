@@ -8,16 +8,16 @@ import {
 	response,
 } from 'inversify-express-utils';
 import { ApiOperationPost, ApiPath } from 'swagger-express-ts';
-import USE_CASE_TYPES from '../../../../../../domain/interfaces/use-case/types';
+import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
 import { NewCustomerAdapter } from './new-customer.adpter';
-import { INewCustomerUseCase } from '../../../../../../domain/interfaces/use-case/new-customer';
-import { INewCustomerCommand } from '../../../../../../domain/interfaces/commands/new-customer.command';
+import { INewCustomerUseCase } from '../../../../../../domain/use-case/v1/new-customer/new-customer.usecase';
+import { INewCustomerCommand } from '../../../../../../domain/use-case/v1/new-customer/new-customer.command';
 
 @ApiPath({
 	name: 'customer',
-	path: '/customer',
+	path: '/v1/customer',
 })
-@controller('/customer')
+@controller('/v1/customer')
 export class NewCustomerController implements interfaces.Controller {
 	constructor(
 		@inject(USE_CASE_TYPES.NewCustomerUseCase)
