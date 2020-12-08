@@ -1,10 +1,10 @@
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
-	IChangeEmailCustomerCommand,
 	IChangeEmailCustomerUseCase,
 	IOutputPort,
 } from '../../../domain/interfaces/use-case/change-email-customer';
+import { IChangeEmailCustomerCommand } from '../../../domain/interfaces/commands/change-email-customer.command';
 import { Email } from '../../../domain/value-objets/email';
 import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';

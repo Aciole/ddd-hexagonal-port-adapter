@@ -3,7 +3,6 @@ import { injectable, inject } from 'inversify';
 import { NewCustomerPresenter } from './new-customer.presenter';
 import { Result } from '../../../../shared/core/result';
 import {
-	INewCustomerCommand,
 	INewCustomerUseCase,
 	IOutputPort,
 } from '../../../domain/interfaces/use-case/new-customer';
@@ -14,6 +13,7 @@ import { Customer } from '../../../domain/customer';
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+import { INewCustomerCommand } from '../../../domain/interfaces/commands/new-customer.command';
 
 @injectable()
 export class NewCustomerUseCase implements INewCustomerUseCase {

@@ -1,7 +1,6 @@
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
-	IChangePhoneCustomerCommand,
 	IChangePhoneCustomerUseCase,
 	IOutputPort,
 } from '../../../domain/interfaces/use-case/change-phone-customer';
@@ -11,6 +10,7 @@ import { ChangePhoneCustomerPresenter } from './change-phone-customer.presenter'
 
 import { injectable, inject } from 'inversify';
 import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+import { IChangePhoneCustomerCommand } from '../../../domain/interfaces/commands/change-phone-customer.command';
 @injectable()
 export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
 	private _outputPort: IOutputPort;

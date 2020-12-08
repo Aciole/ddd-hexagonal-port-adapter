@@ -1,10 +1,10 @@
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
-	IChangeNameCustomerCommand,
 	IChangeNameCustomerUseCase,
 	IOutputPort,
 } from '../../../domain/interfaces/use-case/change-name-customer';
+import { IChangeNameCustomerCommand } from '../../../domain/interfaces/commands/change-name-customer.command';
 import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { Name } from '../../../domain/value-objets/name';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';

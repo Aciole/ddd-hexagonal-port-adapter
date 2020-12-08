@@ -1,10 +1,6 @@
 import { IUseCase } from '../../../../shared/core/use-case';
 import { Customer } from '../../customer';
-
-export interface IVerifyPhoneCustomerCommand {
-	id: string;
-	phone: string;
-}
+import { IVerifyPhoneCustomerCommand } from '../commands/verify-phone-customer.command';
 
 export interface IOutputPort {
 	invalid(error: Error): void;

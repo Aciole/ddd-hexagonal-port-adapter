@@ -12,41 +12,20 @@ import {
 import { inject } from 'inversify';
 
 import USE_CASE_TYPES from '../../../../../domain/interfaces/use-case/types';
-import {
-	INewCustomerCommand,
-	INewCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/new-customer';
+import { INewCustomerUseCase } from '../../../../../domain/interfaces/use-case/new-customer';
 import { NewCustomerAdapter } from './new-customer/new-customer.adpter';
 import { DeleteCustomerAdapter } from './delete-customer/delete-customer.adpter';
-import {
-	IDeleteCustomerCommand,
-	IDeleteCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/delete-customer';
+import { IDeleteCustomerUseCase } from '../../../../../domain/interfaces/use-case/delete-customer';
 import { ChangeEmailCustomerAdapter } from './change-email/change-email-customer.adapter';
-import {
-	IChangeEmailCustomerCommand,
-	IChangeEmailCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/change-email-customer';
+import { IChangeEmailCustomerUseCase } from '../../../../../domain/interfaces/use-case/change-email-customer';
 import { ChangeNameCustomerAdapter } from './change-name/change-name-customer.adapter';
-import {
-	IChangeNameCustomerCommand,
-	IChangeNameCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/change-name-customer';
+import { IChangeNameCustomerUseCase } from '../../../../../domain/interfaces/use-case/change-name-customer';
 import { ChangePhoneCustomerAdapter } from './change-phone/change-phone-customer.adapter';
-import {
-	IChangePhoneCustomerCommand,
-	IChangePhoneCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/change-phone-customer';
+import { IChangePhoneCustomerUseCase } from '../../../../../domain/interfaces/use-case/change-phone-customer';
 import { VerifyEmailCustomerAdapter } from './verify-email-customer/verify-email-customer.adpter';
-import {
-	IVerifyEmailCustomerCommand,
-	IVerifyEmailCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/verify-email.customer';
+import { IVerifyEmailCustomerUseCase } from '../../../../../domain/interfaces/use-case/verify-email.customer';
 import { VerifyPhoneCustomerAdapter } from './verify-phone-customer/verify-phone-customer.adpter';
-import {
-	IVerifyPhoneCustomerCommand,
-	IVerifyPhoneCustomerUseCase,
-} from '../../../../../domain/interfaces/use-case/verify-phone.customer';
+import { IVerifyPhoneCustomerUseCase } from '../../../../../domain/interfaces/use-case/verify-phone.customer';
 import {
 	ApiPath,
 	ApiOperationPost,
@@ -54,6 +33,13 @@ import {
 	ApiOperationPatch,
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
+import { INewCustomerCommand } from '../../../../../domain/interfaces/commands/new-customer.command';
+import { IDeleteCustomerQuery } from '../../../../../domain/interfaces/queries/delete-customer.query';
+import { IChangeEmailCustomerCommand } from '../../../../../domain/interfaces/commands/change-email-customer.command';
+import { IChangeNameCustomerCommand } from '../../../../../domain/interfaces/commands/change-name-customer.command';
+import { IChangePhoneCustomerCommand } from '../../../../../domain/interfaces/commands/change-phone-customer.command';
+import { IVerifyEmailCustomerCommand } from '../../../../../domain/interfaces/commands/verify-email-customer.command';
+import { IVerifyPhoneCustomerCommand } from '../../../../../domain/interfaces/commands/verify-phone-customer.command';
 
 @ApiPath({
 	name: 'customer',
@@ -137,7 +123,7 @@ export class CustomerController implements interfaces.Controller {
 		const adapterPort = new DeleteCustomerAdapter(response);
 
 		this.deleteCustomerUseCase.setOutputPort(adapterPort);
-		const command: IDeleteCustomerCommand = { id };
+		const command: IDeleteCustomerQuery = { id };
 
 		await this.deleteCustomerUseCase.execute(
 			`${new Date()}:${Math.random()}`,

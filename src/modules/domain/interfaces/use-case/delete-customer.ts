@@ -1,8 +1,5 @@
 import { IUseCase } from '../../../../shared/core/use-case';
-
-export interface IDeleteCustomerCommand {
-	id: string;
-}
+import { IDeleteCustomerQuery } from '../queries/delete-customer.query';
 
 export interface IOutputPort {
 	notFound(): void;
@@ -10,4 +7,4 @@ export interface IOutputPort {
 }
 
 export interface IDeleteCustomerUseCase
-	extends IUseCase<IDeleteCustomerCommand, IOutputPort> {}
+	extends IUseCase<IDeleteCustomerQuery, IOutputPort> {}

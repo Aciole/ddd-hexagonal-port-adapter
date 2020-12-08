@@ -2,7 +2,6 @@ import { ICustomerReadRepository } from '../../../domain/interfaces/repository/c
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IOutputPort,
-	IVerifyPhoneCustomerCommand,
 	IVerifyPhoneCustomerUseCase,
 } from '../../../domain/interfaces/use-case/verify-phone.customer';
 import { CustomerId } from '../../../domain/value-objets/customer-id';
@@ -11,6 +10,7 @@ import { VerifyPhoneCustomerPresenter } from './verify-phone-customer.presenter'
 
 import { injectable, inject } from 'inversify';
 import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+import { IVerifyPhoneCustomerCommand } from '../../../domain/interfaces/commands/verify-phone-customer.command';
 @injectable()
 export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
 	private _outputPort: IOutputPort;

@@ -1,7 +1,6 @@
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
-	IDeleteCustomerCommand,
 	IDeleteCustomerUseCase,
 	IOutputPort,
 } from '../../../domain/interfaces/use-case/delete-customer';
@@ -10,6 +9,7 @@ import { DeleteCustomerPresenter } from './delete-customer.presenter';
 
 import { injectable, inject } from 'inversify';
 import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+import { IDeleteCustomerQuery } from '../../../domain/interfaces/queries/delete-customer.query';
 
 @injectable()
 export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
@@ -34,7 +34,7 @@ export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
 
 	async execute(
 		transactionId: string,
-		request: IDeleteCustomerCommand
+		request: IDeleteCustomerQuery
 	): Promise<void> {
 		const customerResult = await this._customerReadRepository.getById(
 			CustomerId.create({ id: request.id })

@@ -2,7 +2,6 @@ import { ICustomerReadRepository } from '../../../domain/interfaces/repository/c
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
 import {
 	IOutputPort,
-	IVerifyEmailCustomerCommand,
 	IVerifyEmailCustomerUseCase,
 } from '../../../domain/interfaces/use-case/verify-email.customer';
 import { CustomerId } from '../../../domain/value-objets/customer-id';
@@ -11,6 +10,7 @@ import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter'
 
 import { injectable, inject } from 'inversify';
 import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+import { IVerifyEmailCustomerCommand } from '../../../domain/interfaces/commands/verify-email-customer.command';
 @injectable()
 export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
 	private _outputPort: IOutputPort;

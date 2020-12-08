@@ -1,11 +1,6 @@
 import { IUseCase } from '../../../../shared/core/use-case';
 import { Customer } from '../../customer';
-
-export interface IChangeNameCustomerCommand {
-	id: string;
-	firstname: string;
-	lastname: string;
-}
+import { IChangeNameCustomerCommand } from '../commands/change-name-customer.command';
 
 export interface IOutputPort {
 	invalid(error: Error): void;

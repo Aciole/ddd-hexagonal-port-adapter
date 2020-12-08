@@ -1,10 +1,6 @@
 import { IUseCase } from '../../../../shared/core/use-case';
 import { Customer } from '../../customer';
-
-export interface IChangeEmailCustomerCommand {
-	id: string;
-	email: string;
-}
+import { IChangeEmailCustomerCommand } from '../commands/change-email-customer.command';
 
 export interface IOutputPort {
 	invalid(error: Error): void;
