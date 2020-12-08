@@ -7,9 +7,9 @@ import { Email } from '../../../domain/value-objets/email';
 import { Name } from '../../../domain/value-objets/name';
 import { Phone } from '../../../domain/value-objets/phone';
 import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
-import { VerifyPhoneCustomerUseCase } from './verify-email-customer.use-case';
+import { VerifyEmailCustomerUseCase } from './verify-email-customer.use-case';
 
-describe('The VerifyPhoneCustomerUseCase', () => {
+describe('The VerifyEmailCustomerUseCase', () => {
 	let outputPort: VerifyEmailCustomerPresenter;
 	let readRepository = new Mock<ICustomerReadRepository>();
 	let writeRepository = new Mock<ICustomerWriteRepository>();
@@ -17,7 +17,7 @@ describe('The VerifyPhoneCustomerUseCase', () => {
 	let customer: Customer;
 
 	it('should return "invalid" given Email format invalid.', async () => {
-		useCase = new VerifyPhoneCustomerUseCase(
+		useCase = new VerifyEmailCustomerUseCase(
 			readRepository.object(),
 			writeRepository.object()
 		);
@@ -44,7 +44,7 @@ describe('The VerifyPhoneCustomerUseCase', () => {
 			.setup((instance) => instance.getById(It.IsAny()))
 			.returns(new Promise((resolve) => resolve(customer)));
 
-		useCase = new VerifyPhoneCustomerUseCase(
+		useCase = new VerifyEmailCustomerUseCase(
 			readRepository.object(),
 			writeRepository.object()
 		);
@@ -78,7 +78,7 @@ describe('The VerifyPhoneCustomerUseCase', () => {
 			.setup((instance) => instance.getById(It.IsAny()))
 			.returns(new Promise((resolve) => resolve(customer)));
 
-		useCase = new VerifyPhoneCustomerUseCase(
+		useCase = new VerifyEmailCustomerUseCase(
 			readRepository.object(),
 			writeRepository.object()
 		);
@@ -112,7 +112,7 @@ describe('The VerifyPhoneCustomerUseCase', () => {
 			.setup((instance) => instance.getById(It.IsAny()))
 			.returns(new Promise((resolve) => resolve(customer)));
 
-		useCase = new VerifyPhoneCustomerUseCase(
+		useCase = new VerifyEmailCustomerUseCase(
 			readRepository.object(),
 			writeRepository.object()
 		);
@@ -154,7 +154,7 @@ describe('The VerifyPhoneCustomerUseCase', () => {
 			.setup((instance) => instance.update(It.IsAny()))
 			.returns(new Promise((resolve) => resolve()));
 
-		useCase = new VerifyPhoneCustomerUseCase(
+		useCase = new VerifyEmailCustomerUseCase(
 			readRepository.object(),
 			writeRepository.object()
 		);

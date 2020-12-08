@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es5",
+		"lib": ["es6", "dom"],
 		"module": "commonjs",
 		"outDir": "./dist",
 		"rootDir": "./src",
@@ -9,9 +10,11 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
-
 		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"types": ["node", "@types/jest", "reflect-metadata"],
+		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "**/*.spec.ts"]

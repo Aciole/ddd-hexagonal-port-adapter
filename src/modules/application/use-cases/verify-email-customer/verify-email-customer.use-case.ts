@@ -9,13 +9,18 @@ import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { Email } from '../../../domain/value-objets/email';
 import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
 
-export class VerifyPhoneCustomerUseCase implements IVerifyEmailCustomerUseCase {
+import { injectable, inject } from 'inversify';
+import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+@injectable()
+export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
 	private _outputPort: IOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
 	constructor(
+		@inject(REPOSITORIES_TYPES.CustomerReadRepository)
 		customerReadRepository: ICustomerReadRepository,
+		@inject(REPOSITORIES_TYPES.CustomerWriteRepository)
 		customerWriteRepository: ICustomerWriteRepository
 	) {
 		this._outputPort = new VerifyEmailCustomerPresenter();

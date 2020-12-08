@@ -1,3 +1,5 @@
+import { injectable, inject } from 'inversify';
+
 import { NewCustomerPresenter } from './new-customer.presenter';
 import { Result } from '../../../../shared/core/result';
 import {
@@ -11,14 +13,18 @@ import { Name } from '../../../domain/value-objets/name';
 import { Customer } from '../../../domain/customer';
 import { ICustomerReadRepository } from '../../../domain/interfaces/repository/customer-read.repository';
 import { ICustomerWriteRepository } from '../../../domain/interfaces/repository/customer-write.repository';
+import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
 
+@injectable()
 export class NewCustomerUseCase implements INewCustomerUseCase {
 	private _outputPort: IOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
 	constructor(
+		@inject(REPOSITORIES_TYPES.CustomerReadRepository)
 		customerReadRepository: ICustomerReadRepository,
+		@inject(REPOSITORIES_TYPES.CustomerWriteRepository)
 		customerWriteRepository: ICustomerWriteRepository
 	) {
 		this._outputPort = new NewCustomerPresenter();

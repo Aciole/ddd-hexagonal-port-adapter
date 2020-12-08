@@ -1,7 +1,8 @@
 import * as express from 'express';
 
-import { Customer } from '../../../../../domain/customer';
-import { IOutputPort } from '../../../../../domain/interfaces/use-case/change-name-customer';
+import { Customer } from '../../../../../../domain/customer';
+import { IOutputPort } from '../../../../../../domain/interfaces/use-case/change-name-customer';
+import { CustomerViewModel } from '../customer.viewmodel';
 
 export class ChangeNameCustomerAdapter implements IOutputPort {
 	public response: express.Response;
@@ -21,6 +22,7 @@ export class ChangeNameCustomerAdapter implements IOutputPort {
 		this.response.status(409).json({ error });
 	}
 	changed(customer: Customer): void {
-		this.response.status(202).json({ customer });
+		const viewmodel = new CustomerViewModel(customer);
+		this.response.status(202).json(viewmodel);
 	}
 }

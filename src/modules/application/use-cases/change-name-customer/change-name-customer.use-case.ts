@@ -9,13 +9,18 @@ import { CustomerId } from '../../../domain/value-objets/customer-id';
 import { Name } from '../../../domain/value-objets/name';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';
 
+import { injectable, inject } from 'inversify';
+import REPOSITORIES_TYPES from '../../../domain/interfaces/repository/types';
+@injectable()
 export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
 	private _outputPort: IOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
 	constructor(
+		@inject(REPOSITORIES_TYPES.CustomerReadRepository)
 		customerReadRepository: ICustomerReadRepository,
+		@inject(REPOSITORIES_TYPES.CustomerWriteRepository)
 		customerWriteRepository: ICustomerWriteRepository
 	) {
 		this._outputPort = new ChangeNameCustomerPresenter();

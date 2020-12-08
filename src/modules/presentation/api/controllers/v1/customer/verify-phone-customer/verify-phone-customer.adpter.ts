@@ -1,7 +1,8 @@
 import * as express from 'express';
 
-import { Customer } from '../../../../../domain/customer';
-import { IOutputPort } from '../../../../../domain/interfaces/use-case/verify-phone.customer';
+import { Customer } from '../../../../../../domain/customer';
+import { IOutputPort } from '../../../../../../domain/interfaces/use-case/verify-phone.customer';
+import { CustomerViewModel } from '../customer.viewmodel';
 
 export class VerifyPhoneCustomerAdapter implements IOutputPort {
 	public response: express.Response;
@@ -23,6 +24,7 @@ export class VerifyPhoneCustomerAdapter implements IOutputPort {
 		this.response.status(204).json({ error });
 	}
 	verified(customer: Customer): void {
-		this.response.status(202).json(customer);
+		const viewmodel = new CustomerViewModel(customer);
+		this.response.status(202).json(viewmodel);
 	}
 }

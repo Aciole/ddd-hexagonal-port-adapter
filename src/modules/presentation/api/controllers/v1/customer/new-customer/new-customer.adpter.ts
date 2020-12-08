@@ -1,7 +1,8 @@
 import * as express from 'express';
 
-import { Customer } from '../../../../../domain/customer';
-import { IOutputPort } from '../../../../../domain/interfaces/use-case/new-customer';
+import { Customer } from '../../../../../../domain/customer';
+import { IOutputPort } from '../../../../../../domain/interfaces/use-case/new-customer';
+import { CustomerViewModel } from '../customer.viewmodel';
 
 export class NewCustomerAdapter implements IOutputPort {
 	public response: express.Response;
@@ -15,9 +16,10 @@ export class NewCustomerAdapter implements IOutputPort {
 		this.response.status(400).json({ error });
 	}
 	duplicate(error: Error): void {
-		this.response.status(400).json({ error });
+		this.response.status(409).json({ error });
 	}
 	created(customer: Customer): void {
-		this.response.status(201).json({ customer });
+		const viewmodel = new CustomerViewModel(customer);
+		this.response.status(201).json(viewmodel);
 	}
 }
