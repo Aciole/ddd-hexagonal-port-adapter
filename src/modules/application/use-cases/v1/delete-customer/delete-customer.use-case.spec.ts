@@ -1,12 +1,12 @@
 import { Mock, It } from 'moq.ts';
 import 'reflect-metadata';
 import { Customer } from '../../../../domain/customer';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import { IDeleteCustomerUseCase } from '../../../../domain/use-case/v1/delete-customer/delete-customer.usecase';
-import { Email } from '../../../../domain/value-objets/email';
-import { Name } from '../../../../domain/value-objets/name';
-import { Phone } from '../../../../domain/value-objets/phone';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
+import { IDeleteCustomerUseCase } from '../../../../domain/use-case/v1/delete-customer';
+import { Email, Name, Phone } from '../../../../domain/value-objets';
 import { DeleteCustomerPresenter } from './delete-customer.presenter';
 import { DeleteCustomerUseCase } from './delete-customer.use-case';
 

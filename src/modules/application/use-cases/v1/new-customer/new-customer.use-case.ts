@@ -4,20 +4,21 @@ import { NewCustomerPresenter } from './new-customer.presenter';
 import { Result } from '../../../../../shared/core/result';
 import {
 	INewCustomerUseCase,
-	IOutputPort,
-} from '../../../../domain/use-case/v1/new-customer/new-customer.usecase';
-import { INewCustomerCommand } from '../../../../domain/use-case/v1/new-customer/new-customer.command';
-import { Email } from '../../../../domain/value-objets/email';
-import { Phone } from '../../../../domain/value-objets/phone';
-import { Name } from '../../../../domain/value-objets/name';
+	INewCustomerCommand,
+	INewCustomerOutputPort,
+} from '../../../../domain/use-case/v1/new-customer';
+
+import { Email, Phone, Name } from '../../../../domain/value-objets';
 import { Customer } from '../../../../domain/customer';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
 
 @injectable()
 export class NewCustomerUseCase implements INewCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: INewCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -32,7 +33,7 @@ export class NewCustomerUseCase implements INewCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: INewCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

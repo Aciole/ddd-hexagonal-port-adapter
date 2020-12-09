@@ -14,8 +14,10 @@ import {
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
 import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
-import { IVerifyEmailCustomerUseCase } from '../../../../../../domain/use-case/v1/verify-email/verify-email.customer.usecase';
-import { IVerifyEmailCustomerCommand } from '../../../../../../domain/use-case/v1/verify-email/verify-email-customer.command';
+import {
+	IVerifyEmailCustomerUseCase,
+	IVerifyEmailCustomerCommand,
+} from '../../../../../../domain/use-case/v1/verify-email/';
 import { VerifyEmailCustomerAdapter } from './verify-email-customer.adpter';
 
 @ApiPath({

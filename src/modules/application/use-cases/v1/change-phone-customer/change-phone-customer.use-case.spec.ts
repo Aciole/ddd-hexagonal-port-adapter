@@ -1,8 +1,10 @@
 import { Mock, It } from 'moq.ts';
 import 'reflect-metadata';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import { IChangePhoneCustomerUseCase } from '../../../../domain/use-case/v1/change-phone/change-phone-customer.usecase';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
+import { IChangePhoneCustomerUseCase } from '../../../../domain/use-case/v1/change-phone';
 import { ChangePhoneCustomerUseCase } from './change-phone-customer.use-case';
 import { ChangePhoneCustomerPresenter } from './change-phone-customer.presenter';
 

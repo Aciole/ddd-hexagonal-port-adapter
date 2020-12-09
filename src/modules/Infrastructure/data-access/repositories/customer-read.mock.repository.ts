@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 
-import { ICustomerReadRepository } from '../../../../modules/domain/interfaces/repository/customer-read.repository';
+import { ICustomerReadRepository } from '../../../domain/repository/customer-read.repository';
 import { Customer } from '../../../../modules/domain/customer';
 import { CustomerId } from '../../../../modules/domain/value-objets/customer-id';
 import { Email } from '../../../../modules/domain/value-objets/email';

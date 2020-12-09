@@ -1,12 +1,12 @@
 import { Mock, It } from 'moq.ts';
 import 'reflect-metadata';
 import { Customer } from '../../../../domain/customer';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import { IVerifyEmailCustomerUseCase } from '../../../../domain/use-case/v1/verify-email/verify-email.customer.usecase';
-import { Email } from '../../../../domain/value-objets/email';
-import { Name } from '../../../../domain/value-objets/name';
-import { Phone } from '../../../../domain/value-objets/phone';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
+import { IVerifyEmailCustomerUseCase } from '../../../../domain/use-case/v1/verify-email';
+import { Email, Name, Phone } from '../../../../domain/value-objets';
 import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
 import { VerifyEmailCustomerUseCase } from './verify-email-customer.use-case';
 

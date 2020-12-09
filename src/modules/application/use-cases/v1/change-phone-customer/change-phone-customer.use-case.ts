@@ -1,19 +1,20 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
 import {
 	IChangePhoneCustomerUseCase,
-	IOutputPort,
-} from '../../../../domain/use-case/v1/change-phone/change-phone-customer.usecase';
-import { IChangePhoneCustomerCommand } from '../../../../domain/use-case/v1/change-phone/change-phone-customer.command';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
-import { Phone } from '../../../../domain/value-objets/phone';
+	IChangePhoneCustomerCommand,
+	IChangePhoneCustomerOutputPort,
+} from '../../../../domain/use-case/v1/change-phone';
+import { CustomerId, Phone } from '../../../../domain/value-objets';
 import { ChangePhoneCustomerPresenter } from './change-phone-customer.presenter';
 
 import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
 @injectable()
 export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IChangePhoneCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -28,7 +29,7 @@ export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IChangePhoneCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

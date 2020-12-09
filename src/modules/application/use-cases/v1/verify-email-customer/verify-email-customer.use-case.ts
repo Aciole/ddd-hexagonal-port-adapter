@@ -1,20 +1,20 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import {
-	IOutputPort,
-	IVerifyEmailCustomerUseCase,
-} from '../../../../domain/use-case/v1/verify-email/verify-email.customer.usecase';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
-import { Email } from '../../../../domain/value-objets/email';
-import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
-
 import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
-import { IVerifyEmailCustomerCommand } from '../../../../domain/use-case/v1/verify-email/verify-email-customer.command';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
+import {
+	IVerifyEmailCustomerCommand,
+	IVerifyEmailCustomerUseCase,
+	IVerifyEmailCustomerOutputPort,
+} from '../../../../domain/use-case/v1/verify-email';
+import { CustomerId, Email } from '../../../../domain/value-objets';
+import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
 
 @injectable()
 export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IVerifyEmailCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -29,7 +29,7 @@ export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IVerifyEmailCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

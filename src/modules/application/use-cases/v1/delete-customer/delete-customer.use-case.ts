@@ -1,19 +1,20 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import { injectable, inject } from 'inversify';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
 import {
 	IDeleteCustomerUseCase,
-	IOutputPort,
-} from '../../../../domain/use-case/v1/delete-customer/delete-customer.usecase';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
+	IDeleteCustomerOutputPort,
+	IDeleteCustomerCommand,
+} from '../../../../domain/use-case/v1/delete-customer';
+import { CustomerId } from '../../../../domain/value-objets';
 import { DeleteCustomerPresenter } from './delete-customer.presenter';
-
-import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
-import { IDeleteCustomerCommand } from '../../../../domain/use-case/v1/delete-customer/delete-customer.command';
 
 @injectable()
 export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IDeleteCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -28,7 +29,7 @@ export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IDeleteCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

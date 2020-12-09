@@ -14,8 +14,10 @@ import {
 	SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
 
-import { IVerifyPhoneCustomerUseCase } from '../../../../../../domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
-import { IVerifyPhoneCustomerCommand } from '../../../../../../domain/use-case/v1/verify-phone/verify-phone-customer.command';
+import {
+	IVerifyPhoneCustomerUseCase,
+	IVerifyPhoneCustomerCommand,
+} from '../../../../../../domain/use-case/v1/verify-phone';
 import USE_CASE_TYPES from '../../../../../../domain/use-case/v1/types';
 import { VerifyPhoneCustomerAdapter } from './verify-phone-customer.adpter';
 

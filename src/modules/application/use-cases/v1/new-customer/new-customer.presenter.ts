@@ -1,7 +1,7 @@
 import { Customer } from '../../../../domain/customer';
-import { IOutputPort } from '../../../../domain/use-case/v1/new-customer/new-customer.usecase';
+import { INewCustomerOutputPort } from '../../../../domain/use-case/v1/new-customer';
 
-export class NewCustomerPresenter implements IOutputPort {
+export class NewCustomerPresenter implements INewCustomerOutputPort {
 	public invalidOutputPort: boolean = false;
 	public duplicateOutputPort: boolean = false;
 	public createdOutputPort: boolean = false;

@@ -5,11 +5,11 @@ import { ChangeEmailCustomerUseCase } from './change-email-customer.use-case';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';
 
 import { Customer } from '../../../../domain/customer';
-import { Name } from '../../../../domain/value-objets/name';
-import { Email } from '../../../../domain/value-objets/email';
-import { Phone } from '../../../../domain/value-objets/phone';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import { Email, Name, Phone } from '../../../../domain/value-objets';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
 import { IChangeEmailCustomerUseCase } from '../../../../domain/use-case/v1/change-email/change-email-customer.usecase';
 
 describe('The ChangeEmailCustomerUseCase', () => {

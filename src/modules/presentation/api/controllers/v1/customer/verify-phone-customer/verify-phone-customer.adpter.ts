@@ -1,10 +1,11 @@
 import * as express from 'express';
 
 import { Customer } from '../../../../../../domain/customer';
-import { IOutputPort } from '../../../../../../domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
+import { IVerifyPhoneCustomerOutputPort } from '../../../../../../domain/use-case/v1/verify-phone';
 import { CustomerViewModel } from '../customer.viewmodel';
 
-export class VerifyPhoneCustomerAdapter implements IOutputPort {
+export class VerifyPhoneCustomerAdapter
+	implements IVerifyPhoneCustomerOutputPort {
 	public response: express.Response;
 
 	constructor(response: express.Response) {

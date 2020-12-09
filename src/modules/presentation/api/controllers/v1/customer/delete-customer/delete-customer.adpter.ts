@@ -1,8 +1,8 @@
 import * as express from 'express';
 
-import { IOutputPort } from '../../../../../../domain/use-case/v1/delete-customer/delete-customer.usecase';
+import { IDeleteCustomerOutputPort } from '../../../../../../domain/use-case/v1/delete-customer';
 
-export class DeleteCustomerAdapter implements IOutputPort {
+export class DeleteCustomerAdapter implements IDeleteCustomerOutputPort {
 	public response: express.Response;
 
 	constructor(response: express.Response) {

@@ -1,10 +1,15 @@
 import { Container } from 'inversify';
 
 import USE_CASE_TYPES from '../../modules/domain/use-case/v1/types';
-import REPOSITORIES_TYPES from '../../modules/domain/interfaces/repository/types';
 
-import { ICustomerReadRepository } from '../../modules/domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../modules/domain/interfaces/repository/customer-write.repository';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../modules/domain/repository';
+
+import { CustomerReadMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-read.mock.repository';
+import { CustomerWriteMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-write.mock.repository';
 
 import { INewCustomerUseCase } from '../../modules/domain/use-case/v1/new-customer/new-customer.usecase';
 import { NewCustomerUseCase } from '../../modules/application/use-cases/v1/new-customer/new-customer.use-case';
@@ -21,12 +26,11 @@ import { ChangePhoneCustomerUseCase } from '../../modules/application/use-cases/
 import { IChangeNameCustomerUseCase } from '../../modules/domain/use-case/v1/change-name/change-name-customer.usecase';
 import { ChangeNameCustomerUseCase } from '../../modules/application/use-cases/v1/change-name-customer/change-name-customer.use-case';
 
-import { IVerifyEmailCustomerUseCase } from '../../modules/domain/use-case/v1/verify-email/verify-email.customer.usecase';
+import { IVerifyEmailCustomerUseCase } from '../../modules/domain/use-case/v1/verify-email/verify-email-customer.usecase';
 import { VerifyEmailCustomerUseCase } from '../../modules/application/use-cases/v1/verify-email-customer/verify-email-customer.use-case';
-import { IVerifyPhoneCustomerUseCase } from '../../modules/domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
+
+import { IVerifyPhoneCustomerUseCase } from '../../modules/domain/use-case/v1/verify-phone/verify-phone-customer.usecase';
 import { VerifyPhoneCustomerUseCase } from '../../modules/application/use-cases/v1/verify-phone-customer/verify-phone-customer.use-case';
-import { CustomerReadMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-read.mock.repository';
-import { CustomerWriteMockRepository } from '../../modules/Infrastructure/data-access/repositories/customer-write.mock.repository';
 
 var container = new Container();
 

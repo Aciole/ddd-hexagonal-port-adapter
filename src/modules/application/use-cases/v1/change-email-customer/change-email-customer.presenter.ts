@@ -1,7 +1,8 @@
 import { Customer } from '../../../../domain/customer';
-import { IOutputPort } from '../../../../domain/use-case/v1/change-email/change-email-customer.usecase';
+import { IChangeEmailCustomerOutputPort } from '../../../../domain/use-case/v1/change-email';
 
-export class ChangeEmailCustomerPresenter implements IOutputPort {
+export class ChangeEmailCustomerPresenter
+	implements IChangeEmailCustomerOutputPort {
 	public invalidOutputPort: boolean = false;
 	public notFoundOutputPort: boolean = false;
 	public unchangedOutputPort: boolean = false;

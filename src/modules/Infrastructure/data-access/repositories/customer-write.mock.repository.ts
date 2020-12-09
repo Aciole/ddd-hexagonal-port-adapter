@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 import { Customer } from 'modules/domain/customer';
-import { ICustomerWriteRepository } from '../../../../modules/domain/interfaces/repository/customer-write.repository';
+import { ICustomerWriteRepository } from '../../../domain/repository/customer-write.repository';
 
 @injectable()
 export class CustomerWriteMockRepository implements ICustomerWriteRepository {

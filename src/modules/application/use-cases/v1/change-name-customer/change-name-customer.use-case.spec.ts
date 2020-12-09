@@ -1,15 +1,15 @@
 import { Mock, It } from 'moq.ts';
 import 'reflect-metadata';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
-import { IChangeNameCustomerUseCase } from '../../../../domain/use-case/v1/change-name/change-name-customer.usecase';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
+import { IChangeNameCustomerUseCase } from '../../../../domain/use-case/v1/change-name';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';
+import { ChangeNameCustomerUseCase } from './change-name-customer.use-case';
 
 import { Customer } from '../../../../domain/customer';
-import { Name } from '../../../../domain/value-objets/name';
-import { Email } from '../../../../domain/value-objets/email';
-import { Phone } from '../../../../domain/value-objets/phone';
-import { ChangeNameCustomerUseCase } from './change-name-customer.use-case';
+import { Email, Name, Phone } from '../../../../domain/value-objets';
 
 describe('The ChangeNameCustomerUseCase', () => {
 	let outputPort: ChangeNameCustomerPresenter;

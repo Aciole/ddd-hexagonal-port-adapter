@@ -1,19 +1,22 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import { injectable, inject } from 'inversify';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
+
 import {
 	IChangeNameCustomerUseCase,
-	IOutputPort,
-} from '../../../../domain/use-case/v1/change-name/change-name-customer.usecase';
-import { IChangeNameCustomerCommand } from '../../../../domain/use-case/v1/change-name/change-name-customer.command';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
-import { Name } from '../../../../domain/value-objets/name';
+	IChangeNameCustomerCommand,
+	IChangeNameCustomerOutputPort,
+} from '../../../../domain/use-case/v1/change-name';
+
+import { CustomerId, Name } from '../../../../domain/value-objets';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';
 
-import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
 @injectable()
 export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IChangeNameCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -28,7 +31,7 @@ export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IChangeNameCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

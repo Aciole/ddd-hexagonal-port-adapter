@@ -1,14 +1,14 @@
 import { Mock, It } from 'moq.ts';
 import 'reflect-metadata';
 import { Customer } from '../../../../domain/customer';
-import { INewCustomerUseCase } from '../../../../domain/use-case/v1/new-customer/new-customer.usecase';
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import { INewCustomerUseCase } from '../../../../domain/use-case/v1/new-customer';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+} from '../../../../domain/repository';
 import { NewCustomerPresenter } from './new-customer.presenter';
 import { NewCustomerUseCase } from './new-customer.use-case';
-import { Name } from '../../../../domain/value-objets/name';
-import { Email } from '../../../../domain/value-objets/email';
-import { Phone } from '../../../../domain/value-objets/phone';
+import { Email, Name, Phone } from '../../../../domain/value-objets';
 
 describe('The NewCustomerUseCase', () => {
 	let outputPort: NewCustomerPresenter;

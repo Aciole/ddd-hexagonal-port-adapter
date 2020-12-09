@@ -1,7 +1,8 @@
 import { Customer } from '../../../../domain/customer';
-import { IOutputPort } from '../../../../domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
+import { IVerifyPhoneCustomerOutputPort } from '../../../../domain/use-case/v1/verify-phone';
 
-export class VerifyPhoneCustomerPresenter implements IOutputPort {
+export class VerifyPhoneCustomerPresenter
+	implements IVerifyPhoneCustomerOutputPort {
 	public invalidOutputPort: boolean = false;
 	public notFoundOutputPort: boolean = false;
 	public alreadyBeenVerifiedOutputPort: boolean = false;

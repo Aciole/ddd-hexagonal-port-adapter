@@ -1,7 +1,8 @@
 import { Customer } from '../../../../domain/customer';
-import { IOutputPort } from '../../../../domain/use-case/v1/change-name/change-name-customer.usecase';
+import { IChangeNameCustomerOutputPort } from '../../../../domain/use-case/v1/change-name';
 
-export class ChangeNameCustomerPresenter implements IOutputPort {
+export class ChangeNameCustomerPresenter
+	implements IChangeNameCustomerOutputPort {
 	public invalidOutputPort: boolean = false;
 	public notFoundOutputPort: boolean = false;
 	public unchangedOutputPort: boolean = false;

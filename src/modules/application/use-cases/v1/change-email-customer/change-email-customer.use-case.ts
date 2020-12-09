@@ -1,20 +1,21 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import {
+	ICustomerReadRepository,
+	ICustomerWriteRepository,
+	types as REPOSITORIES_TYPES,
+} from '../../../../domain/repository';
 import {
 	IChangeEmailCustomerUseCase,
-	IOutputPort,
-} from '../../../../domain/use-case/v1/change-email/change-email-customer.usecase';
-import { IChangeEmailCustomerCommand } from '../../../../domain/use-case/v1/change-email/change-email-customer.command';
-import { Email } from '../../../../domain/value-objets/email';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
+	IChangeEmailCustomerOutputPort,
+	IChangeEmailCustomerCommand,
+} from '../../../../domain/use-case/v1/change-email';
+import { Email, CustomerId } from '../../../../domain/value-objets/';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';
 
 import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
 
 @injectable()
 export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IChangeEmailCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -29,7 +30,7 @@ export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IChangeEmailCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 

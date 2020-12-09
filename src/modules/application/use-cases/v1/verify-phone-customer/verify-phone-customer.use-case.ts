@@ -1,19 +1,18 @@
-import { ICustomerReadRepository } from '../../../../domain/interfaces/repository/customer-read.repository';
-import { ICustomerWriteRepository } from '../../../../domain/interfaces/repository/customer-write.repository';
+import { ICustomerReadRepository } from '../../../../domain/repository/customer-read.repository';
+import { ICustomerWriteRepository } from '../../../../domain/repository/customer-write.repository';
 import {
-	IOutputPort,
+	IVerifyPhoneCustomerOutputPort,
+	IVerifyPhoneCustomerCommand,
 	IVerifyPhoneCustomerUseCase,
-} from '../../../../domain/use-case/v1/verify-phone/verify-phone.customer.usecase';
-import { CustomerId } from '../../../../domain/value-objets/customer-id';
-import { Phone } from '../../../../domain/value-objets/phone';
+} from '../../../../domain/use-case/v1/verify-phone';
+import { CustomerId, Phone } from '../../../../domain/value-objets';
 import { VerifyPhoneCustomerPresenter } from './verify-phone-customer.presenter';
 
 import { injectable, inject } from 'inversify';
-import REPOSITORIES_TYPES from '../../../../domain/interfaces/repository/types';
-import { IVerifyPhoneCustomerCommand } from '../../../../domain/use-case/v1/verify-phone/verify-phone-customer.command';
+import REPOSITORIES_TYPES from '../../../../domain/repository/types';
 @injectable()
 export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
-	private _outputPort: IOutputPort;
+	private _outputPort: IVerifyPhoneCustomerOutputPort;
 	private readonly _customerReadRepository: ICustomerReadRepository;
 	private readonly _customerWriteRepository: ICustomerWriteRepository;
 
@@ -28,7 +27,7 @@ export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
 		this._customerWriteRepository = customerWriteRepository;
 	}
 
-	setOutputPort(outputPort: IOutputPort): void {
+	setOutputPort(outputPort: IVerifyPhoneCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
 
