@@ -4,4 +4,7 @@ module.exports = {
   clearMocks: true,
   coverageProvider: "v8",
   testMatch: ["**/*.spec.ts"],
+  collectCoverage: true,
+
+
 };

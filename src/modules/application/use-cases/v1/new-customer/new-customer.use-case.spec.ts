@@ -44,12 +44,12 @@ describe('The NewCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Carmo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('5511999999999', true, new Date()).getValue(),
 		});
 
 		readRepository
-			.setup((instance) => instance.getById(It.IsAny()))
-			.returns(new Promise((resolve) => resolve(customer)));
+			.setup((instance) => instance.getByEmailAndPhone(It.IsAny(), It.IsAny()))
+			.returns(new Promise((resolve) => resolve([customer])));
 
 		useCase = new NewCustomerUseCase(
 			readRepository.object(),
@@ -61,25 +61,25 @@ describe('The NewCustomerUseCase', () => {
 
 		const command = {
 			email: 'aciolecarmo@gmail.com',
-			phone: 'aciolecarmo@gmail.com',
+			phone: '5511999999999',
 			firstname: 'Aciole',
 			lastname: 'Carmo',
 		};
 
 		await useCase.execute(`transaction-id:${Math.random()}`, command);
 
-		expect(true).toBe(outputPort.invalidOutputPort);
-		expect(false).toBe(outputPort.duplicateOutputPort);
+		expect(true).toBe(outputPort.duplicateOutputPort);
+		expect(false).toBe(outputPort.invalidOutputPort);
 		expect(false).toBe(outputPort.createdOutputPort);
 	});
 
 	it('Should return "created" given Email, Name and Phone format invalid.', async () => {
 		readRepository
-			.setup((instance) => instance.getById(It.IsAny()))
-			.returns(new Promise((resolve) => resolve(customer)));
+			.setup((instance) => instance.getByEmailAndPhone(It.IsAny(), It.IsAny()))
+			.returns(new Promise((resolve) => resolve([])));
 
 		writeRepository
-			.setup((instance) => instance.update(It.IsAny()))
+			.setup((instance) => instance.create(It.IsAny()))
 			.returns(new Promise((resolve) => resolve()));
 
 		useCase = new NewCustomerUseCase(
@@ -92,15 +92,15 @@ describe('The NewCustomerUseCase', () => {
 
 		const command = {
 			email: 'aciolecarmo@gmail.com',
-			phone: 'aciolecarmo@gmail.com',
+			phone: '5511999999999',
 			firstname: 'Aciole',
 			lastname: 'Carmo',
 		};
 
 		await useCase.execute(`transaction-id:${Math.random()}`, command);
 
-		expect(true).toBe(outputPort.invalidOutputPort);
+		expect(false).toBe(outputPort.invalidOutputPort);
 		expect(false).toBe(outputPort.duplicateOutputPort);
-		expect(false).toBe(outputPort.createdOutputPort);
+		expect(true).toBe(outputPort.createdOutputPort);
 	});
 });
