@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { INewCustomerOutputPort } from '../../../../../../domain/use-case/v1/new-customer';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class NewCustomerAdapter implements INewCustomerOutputPort {
 	public response: express.Response;
 

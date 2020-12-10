@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { IVerifyPhoneCustomerOutputPort } from '../../../../../../domain/use-case/v1/verify-phone';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class VerifyPhoneCustomerAdapter
 	implements IVerifyPhoneCustomerOutputPort {
 	public response: express.Response;

@@ -11,7 +11,9 @@ import {
 } from '../../../../domain/use-case/v1/delete-customer';
 import { CustomerId } from '../../../../domain/value-objets';
 import { DeleteCustomerPresenter } from './delete-customer.presenter';
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
 
+@Loggable()
 @injectable()
 export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
 	private _outputPort: IDeleteCustomerOutputPort;
@@ -33,6 +35,7 @@ export class DeleteCustomerUseCase implements IDeleteCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IDeleteCustomerCommand

@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { IChangePhoneCustomerOutputPort } from '../../../../../../domain/use-case/v1/change-phone';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class ChangePhoneCustomerAdapter
 	implements IChangePhoneCustomerOutputPort {
 	public response: express.Response;

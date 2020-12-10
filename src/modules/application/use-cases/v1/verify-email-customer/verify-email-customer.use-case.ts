@@ -12,6 +12,9 @@ import {
 import { CustomerId, Email } from '../../../../domain/value-objets';
 import { VerifyEmailCustomerPresenter } from './verify-email-customer.presenter';
 
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
+
+@Loggable()
 @injectable()
 export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
 	private _outputPort: IVerifyEmailCustomerOutputPort;
@@ -33,6 +36,7 @@ export class VerifyEmailCustomerUseCase implements IVerifyEmailCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IVerifyEmailCustomerCommand

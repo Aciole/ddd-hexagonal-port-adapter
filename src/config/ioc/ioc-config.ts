@@ -62,6 +62,7 @@ container
 	.bind<IVerifyPhoneCustomerUseCase>(USE_CASE_TYPES.VerifyPhoneCustomerUseCase)
 	.to(VerifyPhoneCustomerUseCase);
 
+// repository
 container
 	.bind<ICustomerReadRepository>(REPOSITORIES_TYPES.CustomerReadRepository)
 	.to(CustomerReadMockRepository);

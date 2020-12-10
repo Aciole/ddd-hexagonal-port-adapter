@@ -16,6 +16,9 @@ import {
 	types as REPOSITORIES_TYPES,
 } from '../../../../domain/repository';
 
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
+
+@Loggable()
 @injectable()
 export class NewCustomerUseCase implements INewCustomerUseCase {
 	private _outputPort: INewCustomerOutputPort;
@@ -37,6 +40,7 @@ export class NewCustomerUseCase implements INewCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: INewCustomerCommand

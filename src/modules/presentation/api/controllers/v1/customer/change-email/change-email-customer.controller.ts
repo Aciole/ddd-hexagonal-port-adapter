@@ -66,7 +66,7 @@ export class ChangeEmailCustomerController implements interfaces.Controller {
 		const command: IChangeEmailCustomerCommand = { ...request.body, id };
 
 		await this.changeEmailCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
+			`${new Date().getUTCDate()}:${Math.random()}`,
 			command
 		);
 

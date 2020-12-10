@@ -12,7 +12,9 @@ import { Email, CustomerId } from '../../../../domain/value-objets/';
 import { ChangeEmailCustomerPresenter } from './change-email-customer.presenter';
 
 import { injectable, inject } from 'inversify';
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
 
+@Loggable()
 @injectable()
 export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
 	private _outputPort: IChangeEmailCustomerOutputPort;
@@ -33,7 +35,7 @@ export class ChangeEmailCustomerUseCase implements IChangeEmailCustomerUseCase {
 	setOutputPort(outputPort: IChangeEmailCustomerOutputPort): void {
 		this._outputPort = outputPort;
 	}
-
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IChangeEmailCustomerCommand

@@ -56,10 +56,7 @@ export class DeleteCustomerController implements interfaces.Controller {
 		this.deleteCustomerUseCase.setOutputPort(adapterPort);
 		const command: IDeleteCustomerCommand = { id };
 
-		await this.deleteCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.deleteCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

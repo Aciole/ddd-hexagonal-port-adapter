@@ -65,10 +65,7 @@ export class ChangeNameCustomerController implements interfaces.Controller {
 
 		const command: IChangeNameCustomerCommand = { ...request.body, id };
 
-		await this.changeNameCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.changeNameCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

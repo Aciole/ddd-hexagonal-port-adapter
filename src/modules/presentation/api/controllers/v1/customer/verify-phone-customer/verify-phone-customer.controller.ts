@@ -66,10 +66,7 @@ export class VerifyPhoneCustomerController implements interfaces.Controller {
 		this.verifyPhoneCustomerUseCase.setOutputPort(adapterPort);
 		const command: IVerifyPhoneCustomerCommand = { ...request.body, id };
 
-		await this.verifyPhoneCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.verifyPhoneCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

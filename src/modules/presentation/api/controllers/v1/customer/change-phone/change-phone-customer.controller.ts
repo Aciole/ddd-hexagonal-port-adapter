@@ -65,10 +65,7 @@ export class ChangePhoneCustomerController implements interfaces.Controller {
 
 		const command: IChangePhoneCustomerCommand = { ...request.body, id };
 
-		await this.changePhoneCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.changePhoneCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

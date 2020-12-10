@@ -12,6 +12,9 @@ import { CustomerId, Phone } from '../../../../domain/value-objets';
 import { ChangePhoneCustomerPresenter } from './change-phone-customer.presenter';
 
 import { injectable, inject } from 'inversify';
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
+
+@Loggable()
 @injectable()
 export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
 	private _outputPort: IChangePhoneCustomerOutputPort;
@@ -33,6 +36,7 @@ export class ChangePhoneCustomerUseCase implements IChangePhoneCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IChangePhoneCustomerCommand

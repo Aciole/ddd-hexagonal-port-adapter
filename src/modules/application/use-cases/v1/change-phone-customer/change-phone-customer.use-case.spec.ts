@@ -72,7 +72,7 @@ describe('The ChangePhoneCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Campo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('551199999999', true, new Date()).getValue(),
 		});
 
 		readRepository
@@ -89,7 +89,7 @@ describe('The ChangePhoneCustomerUseCase', () => {
 
 		const command = {
 			id: `${Math.random()}`,
-			phone: '5511959390747',
+			phone: '551199999999',
 		};
 
 		await useCase.execute(`transaction-id:${Math.random()}`, command);
@@ -105,7 +105,7 @@ describe('The ChangePhoneCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Campo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('551199999999', true, new Date()).getValue(),
 		});
 
 		readRepository

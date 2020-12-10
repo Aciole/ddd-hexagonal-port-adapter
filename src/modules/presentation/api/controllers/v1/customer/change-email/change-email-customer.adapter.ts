@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { IChangeEmailCustomerOutputPort } from '../../../../../../domain/use-case/v1/change-email';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class ChangeEmailCustomerAdapter
 	implements IChangeEmailCustomerOutputPort {
 	public response: express.Response;

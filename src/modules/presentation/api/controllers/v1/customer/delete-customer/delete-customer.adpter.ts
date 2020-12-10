@@ -2,6 +2,8 @@ import * as express from 'express';
 
 import { IDeleteCustomerOutputPort } from '../../../../../../domain/use-case/v1/delete-customer';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class DeleteCustomerAdapter implements IDeleteCustomerOutputPort {
 	public response: express.Response;
 

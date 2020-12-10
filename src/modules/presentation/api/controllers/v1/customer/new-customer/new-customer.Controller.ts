@@ -50,10 +50,7 @@ export class NewCustomerController implements interfaces.Controller {
 		this.newCustomerUseCase.setOutputPort(adapterPort);
 		const command: INewCustomerCommand = { ...request.body };
 
-		await this.newCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.newCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

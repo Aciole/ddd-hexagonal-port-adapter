@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { IChangeNameCustomerOutputPort } from '../../../../../../domain/use-case/v1/change-name';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class ChangeNameCustomerAdapter
 	implements IChangeNameCustomerOutputPort {
 	public response: express.Response;

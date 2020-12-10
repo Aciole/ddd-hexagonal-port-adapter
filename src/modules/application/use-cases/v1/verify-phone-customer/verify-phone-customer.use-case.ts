@@ -10,6 +10,10 @@ import { VerifyPhoneCustomerPresenter } from './verify-phone-customer.presenter'
 
 import { injectable, inject } from 'inversify';
 import REPOSITORIES_TYPES from '../../../../domain/repository/types';
+
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
+
+@Loggable()
 @injectable()
 export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
 	private _outputPort: IVerifyPhoneCustomerOutputPort;
@@ -31,6 +35,7 @@ export class VerifyPhoneCustomerUseCase implements IVerifyPhoneCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IVerifyPhoneCustomerCommand

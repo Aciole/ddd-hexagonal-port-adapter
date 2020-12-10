@@ -68,10 +68,7 @@ export class VerifyEmailCustomerController implements interfaces.Controller {
 		this.verifyEmailCustomerUseCase.setOutputPort(adapterPort);
 		const command: IVerifyEmailCustomerCommand = { ...request.body, id };
 
-		await this.verifyEmailCustomerUseCase.execute(
-			`${new Date()}:${Math.random()}`,
-			command
-		);
+		await this.verifyEmailCustomerUseCase.execute(`${Math.random()}`, command);
 
 		return adapterPort.response;
 	}

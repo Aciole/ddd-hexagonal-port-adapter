@@ -42,7 +42,7 @@ describe('The DeleteCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Campo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('551199999999', true, new Date()).getValue(),
 		});
 
 		readRepository

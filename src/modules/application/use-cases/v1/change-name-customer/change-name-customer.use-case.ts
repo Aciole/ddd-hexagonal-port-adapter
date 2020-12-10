@@ -13,7 +13,9 @@ import {
 
 import { CustomerId, Name } from '../../../../domain/value-objets';
 import { ChangeNameCustomerPresenter } from './change-name-customer.presenter';
+import { Loggable, LogTransaction } from '../../../../../shared/decorators/log';
 
+@Loggable()
 @injectable()
 export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
 	private _outputPort: IChangeNameCustomerOutputPort;
@@ -35,6 +37,7 @@ export class ChangeNameCustomerUseCase implements IChangeNameCustomerUseCase {
 		this._outputPort = outputPort;
 	}
 
+	@LogTransaction
 	async execute(
 		transactionId: string,
 		request: IChangeNameCustomerCommand

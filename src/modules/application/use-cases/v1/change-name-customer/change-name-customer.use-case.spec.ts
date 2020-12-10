@@ -73,7 +73,7 @@ describe('The ChangeNameCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Carmo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('551199999999', true, new Date()).getValue(),
 		});
 
 		readRepository
@@ -106,7 +106,7 @@ describe('The ChangeNameCustomerUseCase', () => {
 		customer = Customer.create({
 			name: Name.create('Aciole', 'Carmo').getValue(),
 			email: Email.create('aciolecarmo@gmail.com', true, new Date()).getValue(),
-			phone: Phone.create('5511959390747', true, new Date()).getValue(),
+			phone: Phone.create('551199999999', true, new Date()).getValue(),
 		});
 
 		readRepository

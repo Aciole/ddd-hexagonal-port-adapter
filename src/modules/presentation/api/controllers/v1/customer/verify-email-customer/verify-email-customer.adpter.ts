@@ -4,6 +4,8 @@ import { Customer } from '../../../../../../domain/customer';
 import { IVerifyEmailCustomerOutputPort } from '../../../../../../domain/use-case/v1/verify-email';
 import { CustomerViewModel } from '../customer.viewmodel';
 
+import { Loggable } from '../../../../../../../shared/decorators/log';
+@Loggable()
 export class VerifyEmailCustomerAdapter
 	implements IVerifyEmailCustomerOutputPort {
 	public response: express.Response;
